@@ -37,7 +37,7 @@ export class Application extends React.Component {
     render() {
         return (
             <div className="container-fluid">
-                <h2>NEW MODULE MAIN LABEL</h2>
+                <h2>ZFS</h2>
                 <p>
                     { cockpit.format(_("ZFS LIST: $0"), this.state.zfs_status) }
                 </p>
