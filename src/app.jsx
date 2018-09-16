@@ -28,7 +28,7 @@ export class Application extends React.Component {
         super();
         this.state = { 'zfs_status': _("Unknown") };
 
-        cockpit.file('/etc/zfs_status').read()
+        cockpit.file('/etc/zfs_status').watch(callback)
                 .done((content) => {
                     this.setState({ 'zfs_status': content.trim() });
                 });
