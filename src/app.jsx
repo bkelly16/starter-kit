@@ -26,11 +26,11 @@ const _ = cockpit.gettext;
 export class Application extends React.Component {
     constructor() {
         super();
-        this.state = { 'hostname': _("Unknown") };
+        this.state = { 'zfs_status': _("Unknown") };
 
-        cockpit.file('/etc/hostname').read()
+        cockpit.file('/etc/zfs_status').read()
                 .done((content) => {
-                    this.setState({ 'hostname': content.trim() });
+                    this.setState({ 'zfs_status': content.trim() });
                 });
     }
 
@@ -39,7 +39,7 @@ export class Application extends React.Component {
             <div className="container-fluid">
                 <h2>NEW MODULE MAIN LABEL</h2>
                 <p>
-                    { cockpit.format(_("Running on $0"), this.state.hostname) }
+                    { cockpit.format(_("ZFS LIST: $0"), this.state.zfs_status) }
                 </p>
             </div>
         );
